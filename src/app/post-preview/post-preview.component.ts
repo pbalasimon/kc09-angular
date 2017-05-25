@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Post } from './../post';
 
@@ -10,6 +10,7 @@ import { Post } from './../post';
 export class PostPreviewComponent {
 
   @Input() post: Post;
+  @Output() whenPostSelected: EventEmitter<Post> = new EventEmitter<Post>();
 
   /*------------------------------------------------------------------------------------------------------------------|
    | ~~~ Red Path ~~~                                                                                                 |
@@ -29,6 +30,10 @@ export class PostPreviewComponent {
 
   plainTextToHtml(text: string): string {
     return text ? `<p>${text.replace(/\n/gi, "</p><p>")}</p>` : '';
+  }
+
+  notifyPostSelected(post: Post): void {
+    this.whenPostSelected.emit(post);
   }
 
 }
