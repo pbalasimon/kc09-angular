@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Post } from './../post';
+import { User } from './../user';
 
 @Component({
   selector: 'post-preview',
@@ -11,6 +12,7 @@ export class PostPreviewComponent {
 
   @Input() post: Post;
   @Output() whenPostSelected: EventEmitter<Post> = new EventEmitter<Post>();
+  @Output() whenUserSelected: EventEmitter<User> = new EventEmitter<User>();
 
   /*------------------------------------------------------------------------------------------------------------------|
    | ~~~ Red Path ~~~                                                                                                 |
@@ -19,6 +21,11 @@ export class PostPreviewComponent {
    | de eventos; la idea es enviar al componente padre el usuario sobre el cuál se ha hecho clic. Y puesto que dicho  |
    | clic se realiza en el template de este componente, necesitas, además, un manejador para el mismo.                |
    |------------------------------------------------------------------------------------------------------------------*/
+
+  notifyUserSelected(user: User): void {
+    console.log(user);
+    this.whenUserSelected.emit(user);
+  }
 
   /*------------------------------------------------------------------------------------------------------------------|
    | ~~~ Green Path ~~~                                                                                               |

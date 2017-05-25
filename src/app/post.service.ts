@@ -58,7 +58,7 @@ export class PostService {
      |----------------------------------------------------------------------------------------------*/
 
     return this._http
-      .get(`${this._backendUri}/posts`)
+      .get(`${this._backendUri}/posts/?author.id=` + id + '&publicationDate_lte=' + moment().toDate().getTime() + '&_sort=publicationDate&_order=DESC')
       .map((response: Response): Post[] => Post.fromJsonToList(response.json()));
   }
 

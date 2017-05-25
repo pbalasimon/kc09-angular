@@ -16,4 +16,5 @@
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 -->
 
-<post-preview (whenPostSelected)="goDetailPost($event)" *ngFor="let post of posts" [post]="post"></post-preview>
+<post-preview (whenUserSelected)="goUserPosts($event)" (whenPostSelected)="goDetailPost($event)" *ngFor="let post of posts"
+  [post]="post"></post-preview>

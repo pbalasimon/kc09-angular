@@ -28,7 +28,13 @@ export class PostsResolveService implements Resolve<Post[]> {
      | Recuerda mirar en los parámetros de la ruta, a ver qué encuentras.                      |
      |-----------------------------------------------------------------------------------------*/
 
-    return this._postService.getPosts();
+    let params = route.params;
+
+    if (params.hasOwnProperty("userId") && !params.hasOwnProperty("categoryId")) {
+      return this._postService.getUserPosts(params.userId);
+    } else {
+      return this._postService.getPosts();
+    }
   }
 
 }

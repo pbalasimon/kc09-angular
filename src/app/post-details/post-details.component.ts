@@ -1,8 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { Output, EventEmitter } from '@angular/core';
 import { NativeWindow } from './../window';
 import { Post } from './../post';
+import { User } from './../user';
 
 @Component({
   templateUrl: './post-details.component.html',
@@ -11,6 +12,7 @@ import { Post } from './../post';
 export class PostDetailsComponent implements OnInit {
 
   post: Post;
+  @Output() whenUserSelected: EventEmitter<User> = new EventEmitter<User>();
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -32,6 +34,11 @@ export class PostDetailsComponent implements OnInit {
    | para hacer esto necesitas inyectar como dependencia el Router de la app. La ruta a navegar es '/posts/users', |
    | pasando como parámetro el identificador del autor.                                                            |
    |---------------------------------------------------------------------------------------------------------------*/
+
+  notifyUserSelected(user: User): void {
+    console.log(user);
+    this.whenUserSelected.emit(user);
+  }
 
   /*--------------------------------------------------------------------------------------------------------------------|
    | ~~~ Yellow Path ~~~                                                                                                |
