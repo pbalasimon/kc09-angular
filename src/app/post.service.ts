@@ -6,6 +6,9 @@ import "rxjs/add/operator/map";
 import { BackendUri } from './settings';
 import { Post } from './post';
 
+import * as moment from 'moment';
+import 'moment/locale/es';
+
 @Injectable()
 export class PostService {
 
@@ -31,7 +34,7 @@ export class PostService {
      |----------------------------------------------------------------------------------------------*/
 
     return this._http
-      .get(`${this._backendUri}/posts`)
+      .get(`${this._backendUri}/posts/?publicationDate_lte=` + moment().toDate().getTime() + '&_sort=publicationDate&_order=DESC ')
       .map((response: Response): Post[] => Post.fromJsonToList(response.json()));
   }
 
