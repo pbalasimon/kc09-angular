@@ -280,6 +280,22 @@
         2
       ],
       "id": 10
+    },
+    {
+      "title": "Mi primer post",
+      "intro": "introduccion",
+      "body": "contnidoooooo",
+      "publicationDate": 1495994132806,
+      "categories": [],
+      "author": {
+        "id": 1,
+        "name": "KeepCoder",
+        "username": "keepcoder",
+        "email": "keepcoder@postium.com",
+        "avatar": "assets/images/keepcoder.jpg"
+      },
+      "likes": [],
+      "id": 11
     }
   ],
   "categories": [
