@@ -4,6 +4,8 @@ import { Output, EventEmitter } from '@angular/core';
 import { NativeWindow } from './../window';
 import { Post } from './../post';
 import { User } from './../user';
+import { Category } from './../category';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './post-details.component.html',
@@ -16,7 +18,7 @@ export class PostDetailsComponent implements OnInit {
 
   constructor(
     private _activatedRoute: ActivatedRoute,
-    @Inject(NativeWindow) private _window) { }
+    @Inject(NativeWindow) private _window, private _router: Router) { }
 
   ngOnInit(): void {
     this._activatedRoute.data.subscribe((data: { post: Post }) => this.post = data.post);
@@ -47,5 +49,7 @@ export class PostDetailsComponent implements OnInit {
    | para hacer esto necesitas inyectar como dependencia el Router de la app. La ruta a navegar es '/posts/categories', |
    | pasando como parámetro el identificador de la categoría.                                                           |
    |--------------------------------------------------------------------------------------------------------------------*/
-
+  goCategoryPosts(category: Category) {
+    this._router.navigate(["/posts/categories", category.id]);
+  }
 }

@@ -37,5 +37,5 @@
   | en él para notificar los clics sobre las categorías del post.            |
   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
   -->
-  <category-box [categories]="post.categories"></category-box>
+  <category-box (whenCategorySelected)="goCategoryPosts($event)" [categories]="post.categories"></category-box>
 </div>

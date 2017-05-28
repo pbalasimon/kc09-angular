@@ -32,6 +32,8 @@ export class PostsResolveService implements Resolve<Post[]> {
 
     if (params.hasOwnProperty("userId") && !params.hasOwnProperty("categoryId")) {
       return this._postService.getUserPosts(params.userId);
+    } else if (!params.hasOwnProperty("userId") && params.hasOwnProperty("categoryId")) {
+      return this._postService.getCategoryPosts(params.categoryId);
     } else {
       return this._postService.getPosts();
     }

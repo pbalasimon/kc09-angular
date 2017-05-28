@@ -1,3 +1,4 @@
+import { Category } from './category';
 import { Injectable, Inject } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -85,9 +86,19 @@ export class PostService {
      |   - Ordenación: _sort=publicationDate&_order=DESC                                                |
      |--------------------------------------------------------------------------------------------------*/
 
+
     return this._http
-      .get(`${this._backendUri}/posts`)
-      .map((response: Response): Post[] => Post.fromJsonToList(response.json()));
+      .get(`${this._backendUri}/posts` + '?publicationDate_lte=' + moment().toDate().getTime() + '&_sort=publicationDate&_order=DESC')
+      .map((response: Response): Post[] => {
+        let posts: Post[] = Post.fromJsonToList(response.json());
+        posts = posts.filter((post) => {
+          post.categories = post.categories.filter((category) => {
+            return category.id == id;
+          });
+          return post.categories.length >= 1;
+        });
+        return posts;
+      });
   }
 
   getPostDetails(id: number): Observable<Post> {
