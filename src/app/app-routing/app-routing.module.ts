@@ -9,6 +9,7 @@ import { PostDetailsComponent } from './../post-details/post-details.component';
 import { PostsByCategoryComponent } from './../posts-by-category/posts-by-category.component';
 import { PostsByAuthorComponent } from './../posts-by-author/posts-by-author.component';
 import { PostsViewComponent } from './../posts-view/posts-view.component';
+import { EditStoryComponent } from './../edit-story/edit-story.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,12 @@ import { PostsViewComponent } from './../posts-view/posts-view.component';
     }, {
       path: 'new-story',
       component: NewStoryComponent
+    }, {
+      path: 'edit-story/:postId',
+      component: EditStoryComponent,
+      resolve: {
+        post: PostDetailsResolveService
+      }
     }, {
       path: 'posts/:postId',
       component: PostDetailsComponent,

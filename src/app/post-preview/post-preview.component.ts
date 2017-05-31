@@ -23,7 +23,6 @@ export class PostPreviewComponent {
    |------------------------------------------------------------------------------------------------------------------*/
 
   notifyUserSelected(user: User): void {
-    console.log(user);
     this.whenUserSelected.emit(user);
   }
 

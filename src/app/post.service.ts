@@ -125,4 +125,12 @@ export class PostService {
       });
   }
 
+  editPost(post: Post): Observable<Post> {
+    return this._http
+      .put(`${this._backendUri}/posts/${post.id}`, post)
+      .map((response: Response) => {
+        return Post.fromJson(response.json());
+      });
+  }
+
 }

@@ -33,6 +33,7 @@ import { PostsViewComponent } from './posts-view/posts-view.component';
 import { PostService } from './post.service';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { FromNowPipe } from './from-now.pipe';
+import { EditStoryComponent } from './edit-story/edit-story.component';
 
 @NgModule({
   imports: [
@@ -63,7 +64,8 @@ import { FromNowPipe } from './from-now.pipe';
     PostsListComponent,
     PostsViewComponent,
     SearchBoxComponent,
-    FromNowPipe
+    FromNowPipe,
+    EditStoryComponent
   ],
   providers: [
     BackendUriProvider,

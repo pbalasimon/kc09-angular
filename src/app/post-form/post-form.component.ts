@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { FormGroup } from "@angular/forms";
 
 import { Post } from './../post';
@@ -13,6 +13,7 @@ export class PostFormComponent implements OnInit {
 
   private _nowDatetimeLocal: string;
   private _publicationDateScheduled: boolean = false;
+  @Input() post: Post;
 
   @Output() postSubmitted: EventEmitter<Post> = new EventEmitter();
 

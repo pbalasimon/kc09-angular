@@ -46,6 +46,16 @@
   cursor: pointer;
 }
 
+.metadata .update {
+  display: block;
+  margin-top: -6px;
+  color: #00ab6b;
+}
+
+.metadata .update:hover {
+  cursor: pointer;
+}
+
 .metadata .author .date {
   display: block;
   color: rgba(0, 0, 0, .44);

@@ -38,7 +38,6 @@ export class PostDetailsComponent implements OnInit {
    |---------------------------------------------------------------------------------------------------------------*/
 
   notifyUserSelected(user: User): void {
-    console.log(user);
     this.whenUserSelected.emit(user);
   }
 
@@ -52,4 +51,9 @@ export class PostDetailsComponent implements OnInit {
   goCategoryPosts(category: Category) {
     this._router.navigate(["/posts/categories", category.id]);
   }
+
+  editStory(post: Post) {
+    this._router.navigate([`/edit-story/${post.id}`]);
+  }
+
 }

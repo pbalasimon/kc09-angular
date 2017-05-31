@@ -16,7 +16,7 @@
   | el nombre que se ha definido en la entidad Post. Además, este campo debe ser obligatorio.       |
   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
   -->
-  <input type="text" ngModel #title="ngModel" name="title" required placeholder="Título" class="u-full-width">
+  <input type="text" [(ngModel)]="post.title" #title="ngModel" name="title" required placeholder="Título" class="u-full-width">
   <!--
   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
   | Purple Path                                                                                     |
@@ -25,7 +25,7 @@
   | el nombre que se ha definido en la entidad Post. Además, este campo debe ser obligatorio.       |
   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
   -->
-  <textarea placeholder="Introduce tu historia" ngModel #intro="ngModel" name="intro" required class="u-full-width georgia-font"
+  <textarea placeholder="Introduce tu historia" [(ngModel)]="post.intro" #intro="ngModel" name="intro" required class="u-full-width georgia-font"
     autogrow></textarea>
   <!--
   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -35,7 +35,7 @@
   | el nombre que se ha definido en la entidad Post. Además, este campo debe ser obligatorio.       |
   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
   -->
-  <textarea placeholder="Cuenta tu historia" ngModel #body="ngModel" name="body" required class="u-full-width georgia-font"
+  <textarea placeholder="Cuenta tu historia" [(ngModel)]="post.body" #body="ngModel" name="body" required class="u-full-width georgia-font"
     autogrow></textarea>
   <div>
     <div>
