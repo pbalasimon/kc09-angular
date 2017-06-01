@@ -41,4 +41,5 @@
   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
   -->
   <category-box (whenCategorySelected)="goCategoryPosts($event)" [categories]="post.categories"></category-box>
+  <post-likes (whenPostLiked)="saveLike($event)" [post]="post"></post-likes>
 </div>

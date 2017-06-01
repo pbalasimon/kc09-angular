@@ -30,7 +30,7 @@ export class EditStoryComponent implements OnInit {
     post.likes = this.post.likes;
     post.media = this.post.media;
     this._unsubscribePostEdition();
-    this._postSubscription = this._postService.editPost(post).subscribe(() => this._router.navigate(["/"]));
+    this._postSubscription = this._postService.update(post).subscribe(() => this._router.navigate(["/"]));
   }
 
   private _unsubscribePostEdition(): void {
